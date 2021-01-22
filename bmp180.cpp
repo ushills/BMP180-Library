@@ -15,6 +15,8 @@ bool bmp180::begin(uint8_t oversampling)
   /* Check Chip-id (register D0h): This value is fixed to 0x55 and can be used to check whether
   communication is functioning.*/
 
+  delay(5); // allow chip to stabilise
+
   if (_BMP180Read1Byte(0xD0) != 0x55)
     return false;
 
